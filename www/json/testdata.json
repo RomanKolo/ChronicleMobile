@@ -1,0 +1,193 @@
+{
+	"chronicleJSON": {
+		"character": {
+			"name": "Arseth",
+			"level": "1",
+			"experience": "3",
+			"stats": {
+				"stat1": {
+					"attribute": {
+						"name": "Physical Strength",
+						"value": 3
+					},
+					"skill1": {
+						"name": "Athletics",
+						"value": 3
+					},
+					"skill2": {
+						"name": "Brawl",
+						"value": 0
+					}
+				},
+				"stat2": {
+					"attribute": {
+						"name": "Manual Dexterity",
+						"value": 3
+					},
+					"skill1": {
+						"name": "Melee",
+						"value": 2
+					},
+					"skill2": {
+						"name": "Marksmanship",
+						"value": 1
+					}
+				},
+				"stat3": {
+					"attribute": {
+						"name": "Agility",
+						"value": 3
+					},
+					"skill1": {
+						"name": "Acrobatics",
+						"value": 2
+					},
+					"skill2": {
+						"name": "Stealth",
+						"value": 1
+					}
+				},
+				"stat4": {
+					"attribute": {
+						"name": "Endurance",
+						"value": 2
+					},
+					"skill1": {
+						"name": "Survival",
+						"value": 1
+					},
+					"skill2": {
+						"name": "Resistance",
+						"value": 2
+					}
+				},
+				"stat5": {
+					"attribute": {
+						"name": "Intelligence",
+						"value": 2
+					},
+					"skill1": {
+						"name": "Academics",
+						"value": 2
+					},
+					"skill2": {
+						"name": "Larceny",
+						"value": 0
+					}
+				},
+				"stat6": {
+					"attribute": {
+						"name": "Willpower",
+						"value": 2
+					},
+					"skill1": {
+						"name": "Concentration",
+						"value": 0
+					},
+					"skill2": {
+						"name": "Spellcraft",
+						"value": 2
+					}
+				},
+				"stat7": {
+					"attribute": {
+						"name": "Perception",
+						"value": 2
+					},
+					"skill1": {
+						"name": "Awareness",
+						"value": 1
+					},
+					"skill2": {
+						"name": "Investigate",
+						"value": 1
+					}
+				},
+				"stat8": {
+					"attribute": {
+						"name": "Presence",
+						"value": 2
+					},
+					"skill1": {
+						"name": "Social",
+						"value": 1
+					},
+					"skill2": {
+						"name": "Intimidate",
+						"value": 1
+					}
+				}
+			},
+			"equipment": {
+				"weapons": {
+					"Longbow": { 
+						"type": "bow",	
+						"attack": "4", 
+						"damage": "4",
+						"range": "16",
+						"weight": "7",
+						"quality": "Fine"},
+					"Battle Axe": {
+						"type": "axe",
+						"attack": "5",
+						"damage": "4",
+						"range": "2",
+						"weight": "5"	
+						},
+					"Shield": {
+						"type": "shield",
+						"attack": "5",
+						"weight": "10"
+							}
+				},
+				"armour": {
+					"Medium": {
+						"pv": "2",
+						"ag": "4",
+						"weight": "10"
+					}
+				},
+				"inventory": {
+						"normalthings": {
+							"quantity": "1"
+						},
+						"otherthings": {
+							"quantity": "100",
+							"measure": "feet"
+						},
+						"morethings" : {
+							"quantity": "15",
+							"type": "special"
+						}
+				}			
+			},
+			"conditions": {
+				"wounds": "2",
+				"Serious Wound": "-2 all"
+			},
+			"magic": {
+				"slivers": "1",
+				"shards": "1",
+				"schools": {
+					"restoration": {
+					 "ranks": "2",
+					 "name": "Restoration",
+					 "spells": {
+				    	"Bone Mending": {
+					    	"difficulty": "6",
+					    	"range": "Touch",
+					    	"duration": "Special",
+					    	"description": " You can mend broken bones. To do this, the target this spell needs to be resting for at least an hour while you apply your art. After the first hour, you make a Spellcraft check. If you gain 4 successes, you manage to heal a broken arm. If you gain 6 successes, you may heal a broken leg. If you do not gain enough successes, this becomes an extended action - where you must spend another hour concentrating over the injury. Like all healing spells, the caster does not get the slivers from failed dice - rather, the target of the spell gets them instead."
+				    	 }
+				       }	
+		        	}
+    	    	}
+        	},
+			"currency": {
+				"copper": "10",
+				"silver": "5",
+				"gold": "1"
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+ul, li {
+  list-style:none;
+  margin:1px;
+  padding:1px;
+}
+
+#stats {
+  width: 90%;
+}
+
+#skill1, #skill2, #attribute{
+  display:inline-block;
+  width:180px;
+}
+
+.attributes {
+  margin-right:10px;
+}
+
+.attrInput {
+  float:right;
+  width: 4em;
+}
+
+.currency, .itemStat, #equipment{
+  display:inline-block;
+}
