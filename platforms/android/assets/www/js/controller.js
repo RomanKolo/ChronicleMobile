@@ -24,32 +24,48 @@ angular.module('myFilters', [])
 
 chronicleControllers.controller('chroniclePlayer', ['$scope', '$http', function($scope, $http) {
 	console.log("Always Show this line");
-	var _fileData;
+	var fileDataHolder;
 	
 	document.addEventListener("deviceready", onDeviceReady, false);
 	
     function onDeviceReady() {
+    	console.log("ONDEVICEREADY");
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
     }
-
+    
     function gotFS(fileSystem) {
-        fileSystem.root.getFile("json/testdata.json", null, gotFileEntry, fail);
+    	console.log("GOTFS");
+    	fileSystem.root.getDirectory("Documents/Chronicle2", {create: true, exclusive: false}, gotDirectory, fail);
+       // fileSystem.root.getFile("json/testdata.json", null, gotFileEntry, fail);
     }
-
+    
+    function gotDirectory(chronicleDirectory) {
+    	chronicleDirectory.getFile("chronicle.json", {create: true}, gotFileEntry, fail)
+    }
+   
     function gotFileEntry(fileEntry) {
+    	 console.log("GOTFILEENTRY");
         fileEntry.file(readAsText, fail);
     }
-	
-        function readAsText(file) {
-            var reader = new FileReader();
-            reader.onloadend = function(evt) {
-                console.log("Read as text");
-                console.log(evt.target.result);
-            };
-            reader.readAsText(file);
-        }    
-        
-	$scope.fileData = _fileData;
+
+    function readAsText(file) {
+    	   console.log("READ");
+        var reader = new FileReader();
+        reader.onloadend = function(evt) {
+            console.log("Read as text");
+            $scope.fileData = evt.target.result.chronicleJSON.character;
+        };
+        reader.readAsText(file);
+    }
+   // $scope.fileData = fileDataHolder;
+    function fail(e) {
+    	
+    	console.log(e.code);
+    	for (var key in e) {
+    		console.log(key);
+    	}
+    	console.log("ENDE");
+    }
 	
 	$scope.testText = "Blue";
     const CHECKMARK_IMG = "img/30px-MW-Icon-CheckMark.png";
