@@ -1,4 +1,10 @@
 	<div>
+	<hr>
+			<explode-tree title='BLADIE' dodo='sepia'></explode-tree>
+	<hr>
+	</div>
+	
+	<div>
 	<accordion id="playerContainer" close-others=0>
 	<accordion-group heading="Character Information">
 	<div id="playerInfo">
@@ -51,3 +57,7 @@
 	<button ng-click="loadcharacter()">Load</button><img data-ng-src="{{statusImg}}" ng-show="validImg">
 	<button ng-click="greenButton()">green</button>
 	<button ng-click="redButton()">red</button>
+	  <script type="text/ng-template" id="explode_tree.html">
+	{{data}} Inside!
+
+  </script>

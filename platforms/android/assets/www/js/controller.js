@@ -1,4 +1,4 @@
-angular.module('chronicleApp',['ngRoute', 'chronicleApp.services'])
+angular.module('chronicleApp',['ngRoute', 'chronicleApp.services', 'chroniceApp.directives'])
  .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl: 'template/player.html',
@@ -21,6 +21,18 @@ var dataVar;
 				}
 			}
 	    }]);*/
+
+angular.module('chroniceApp.directives', [])
+.directive('explodeTree', [function(){
+	return {
+		restrict: 'E',
+		scope: {
+			title: '@',
+			dodo: '@'
+		},
+		template: 'EP {{title}} :: {{dodo}}'
+	}
+}]);
 
 angular.module('chronicleApp.services', [])
 .factory('characterData', ['$q', function (qi)
@@ -60,7 +72,7 @@ function chroniclePlayer($scope, $http, $route, $q, characterData) {
 	{
 		console.log(a);
 		var data = JSON.parse(a);
-		$scope.playerText = data.chronicleJSON.character;
+		$scope.playerText = data.chronicleJSON;
 	}
 	, dataFail, dataNotify);
 	//$scope.testData = localVar;
