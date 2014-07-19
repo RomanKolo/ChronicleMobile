@@ -1,63 +1,10 @@
 	<div>
-	<hr>
-			<explode-tree title='BLADIE' dodo='sepia'></explode-tree>
+	<player-info></player-info>
 	<hr>
 	</div>
 	
-	<div>
-	<accordion id="playerContainer" close-others=0>
-	<accordion-group heading="Character Information">
-	<div id="playerInfo">
-	<span id="name">Name: <input ng-model="playerText.name" type="text"></span>
-	<span id="level">Level: <input ng-model="playerText.level" type="text"></span>
-	<span id="level">Experience: {{playerText.experience}}</span>
-	<span id="shards">Shards: {{playerText.magic.shards}}</span>
-	<span id="slivers">Slivers: {{playerText.magic.slivers}}</span>
-	<ul class="currency">
-		<li class="currency" ng-repeat="(key,data) in playerText.currency">{{key}} : {{data}}</li>
-	</ul>
-	</div>
-	</accordion-group>
-	<accordion-group heading="Stats and Skills">
-		<ul id="stats"> 
-			<li ng-repeat="(key,value) in playerText.stats">{{key}}{{value}}<span class="attributes" id="{{key2}}" ng-repeat="(key2,entry) in value">{{entry.name}}: <input class="attrInput" ng-model="entry.value" type="text"></span></li>
-		</ul>
-    </accordion-group>
-	<accordion-group heading="Inventory">
-	<!--	<accordion id="equipment"> -->
-			<accordion-group class="{{name}}" heading="{{name}}" ng-repeat="(name,value) in playerText.equipment"><button class="addButton" ng-click="addInventory(name)">Add {{name}}</button>
-				<ul>
-				  <li class="{{key}}" ng-repeat="(key,data) in value">{{key}}<button class="delButton" ng-click="delInventory(key)">Remove</button><button class="addButton" ng-click="editInventory(name)">Edit</button>
-						<ul>
-							<li class="itemStat" ng-repeat="(subkey,subdata) in data">{{subkey}}..{{subdata}}</li>
-						</ul>
-					</li>
-				</ul>
-			</accordion-group>
-	<!--	</accordion> -->
-	</accordion-group>
-	<accordion-group heading="Magic">
-	  <button class="addButton" ng-click="addSchool()">Add School</button>
-		  <accordion-group heading="{{value.name}} :: {{value.ranks}}" ng-repeat="(name,value) in playerText.magic.schools">
-			<button class="addButton" ng-click="addInventory(name)">Add {{value.name}} Spell</button>
-		    	<details ng-repeat="(subname,subvalue) in value.spells">
-				  <summary>{{subname}}</summary>
-			    	<ul>
-				    	<li ng-repeat="(key,data) in subvalue">{{key}} : {{data}}</li>
-			    	</ul>
-					</details>
-			</accordion-group>
-	</accordion-group>
-	</accordion>
-	</div>
+	
 	<code>{{playerText}}</code>
-	<hr>
-	<p>{{playerText}}</p>
 	<hr>
 	<button ng-click="loadcharacter()">Load</button><img data-ng-src="{{statusImg}}" ng-show="validImg">
 	<button ng-click="greenButton()">green</button>
-	<button ng-click="redButton()">red</button>
-	  <script type="text/ng-template" id="explode_tree.html">
-	{{data}} Inside!
-
-  </script>

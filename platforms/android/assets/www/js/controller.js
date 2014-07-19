@@ -1,4 +1,4 @@
-angular.module('chronicleApp',['ngRoute', 'chronicleApp.services', 'chroniceApp.directives'])
+angular.module('chronicleApp',['ngRoute', 'chronicleApp.services', 'chroniceApp.directives', 'chronicleApp.controllers'])
  .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/', {
 		templateUrl: 'template/player.html',
@@ -25,12 +25,22 @@ var dataVar;
 angular.module('chroniceApp.directives', [])
 .directive('explodeTree', [function(){
 	return {
-		restrict: 'E',
+		restrict: 'A',
 		scope: {
-			title: '@',
-			dodo: '@'
+			key: '@title',
+			value: '@dodo',
+			text: '@text'
 		},
-		template: 'EP {{title}} :: {{dodo}}'
+		link: function(scope, element, attr) {
+			console.log("LOOKHERE! " + scope.key);
+		},
+		//templateUrl: 'template/tree_template.html'
+	}
+}])
+.directive('playerInfo', [function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'template/directive/player_info.html'
 	}
 }]);
 
@@ -57,6 +67,7 @@ angular.module('chronicleApp.services', [])
 	}
 }]);
 
+angular.module('chronicleApp.controllers', [])
 //Player page function
 function chroniclePlayer($scope, $http, $route, $q, characterData) {
 	console.log("Always Show this line");
@@ -70,9 +81,8 @@ function chroniclePlayer($scope, $http, $route, $q, characterData) {
 	var promise = characterData();
 	promise.then(function(a) 
 	{
-		console.log(a);
 		var data = JSON.parse(a);
-		$scope.playerText = data.chronicleJSON;
+		$scope.playerText = data.chronicleJSON.character;
 	}
 	, dataFail, dataNotify);
 	//$scope.testData = localVar;
@@ -117,7 +127,7 @@ function gotDirectory(chronicleDirectory){
 }
 
 function gotFileEntry(fileEntry) {
-	console.log(fileEntry.fullPath);
+	//console.log(fileEntry.fullPath);
     fileEntry.file(gotFile, fail)
 }
 
@@ -126,7 +136,7 @@ function gotFile(file) {
 }
 
 function readAsText(file) {
-	console.log(file.fullPath);
+	//console.log(file.fullPath);
 	var reader = new FileReader();
 	reader.onloadend = function(evt) {
        console.log("FILEREAD");
